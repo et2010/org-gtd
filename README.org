@@ -21,7 +21,7 @@ First, clone from GitHub:
 
 #+begin_src sh
   cd ~/.emacs.d/private
-  git clone https://github.com/et2010/org-gtd.git
+  git clone https://github.com/et2010/org-gtd.git gtd
 #+end_src
 
 To use this contribution add it to your =~/.spacemacs=
