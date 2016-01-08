@@ -1,0 +1,65 @@
+#+TITLE: gtd layer
+#+HTML_HEAD_EXTRA: <link rel="stylesheet" type="text/css" href="../css/readtheorg.css" />
+
+#+CAPTION: logo
+
+# The maximum height of the logo should be 200 pixels.
+[[img/gtd.png]]
+
+* Table of Contents                                        :TOC_4_org:noexport:
+ - [[Description][Description]]
+ - [[Install][Install]]
+ - [[Key bindings][Key bindings]]
+
+* Description
+This spacemacs layer is based on the web document "[[http://doc.norang.ca/org-mode.html][Org Mode - Organize Your Life In Plain Text!]]" by Bernt Hansen. AFAIK, his document is the most comprehensive tutorial you could find on the Internet. It is very helpful for those who want to learn org-mode for GTD.
+
+The original document is also included, though some settings here may be different from the documented version. I modified it a bit to make it fit in with the Spacemacs layer frame.
+
+* Install
+First, clone from GitHub:
+
+#+begin_src sh
+  cd ~/.emacs.d/private
+  git clone https://github.com/et2010/org-gtd.git
+#+end_src
+
+To use this contribution add it to your =~/.spacemacs=
+
+#+begin_src emacs-lisp
+  (setq-default dotspacemacs-configuration-layers '(gtd))
+#+end_src
+
+* Key bindings
+
+| Key Binding   | Description                                     | Used       |
+|---------------+-------------------------------------------------+------------|
+| F12           | Agenda (1 key less than C-c a)                  | Very Often |
+| C-c b         | Switch to org file                              | Very Often |
+| S-F11         | Goto currently clocked item                     | Very Often |
+| C-c c         | Capture a task                                  | Very Often |
+| C-F11         | Clock in a task (show menu with prefix)         | Often      |
+| f9 g          | Gnus - I check mail regularly                   | Often      |
+| f5            | Show todo items for this subtree                | Often      |
+| S-f5          | Widen                                           | Often      |
+| f9 b          | Quick access to bbdb data                       | Often      |
+| f9 c          | Calendar access                                 | Often      |
+| C-S-f12       | Save buffers and publish current project        | Often      |
+| C-c l         | Store a link for retrieval with C-c C-l         | Often      |
+| f8            | Go to next org file in org-agenda-files         | Sometimes  |
+| f9 r          | Boxquote selected region                        | Sometimes  |
+| f9 t          | Insert inactive timestamp                       | Sometimes  |
+| f9 v          | Toggle visible mode (for showing/editing links) | Sometimes  |
+| C-f9          | Previous buffer                                 | Sometimes  |
+| C-f10         | Next buffer                                     | Sometimes  |
+| C-x n r       | Narrow to region                                | Sometimes  |
+| f9 f          | Boxquote insert a file                          | Sometimes  |
+| f9 i          | Info manual                                     | Sometimes  |
+| f9 I          | Punch Clock In                                  | Sometimes  |
+| f9 O          | Punch Clock Out                                 | Sometimes  |
+| f9 o          | Switch to org scratch buffer                    | Sometimes  |
+| f9 s          | Switch to scratch buffer                        | Sometimes  |
+| f9 h          | Hide other tasks                                | Rare       |
+| f7            | Toggle line truncation/wrap                     | Rare       |
+| f9 T          | Toggle insert inactive timestamp                | Rare       |
+| C-c a         | Enter Agenda (minimal emacs testing)            | Rare       |
