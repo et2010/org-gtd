@@ -414,6 +414,9 @@ so change the default 'F' binding in the agenda to allow both"
   ;; Remove completed items from search results
   (setq org-agenda-skip-timestamp-if-done t)
 
+  ;; Skip scheduled items if they are repeated beyond the current deadline.
+  (setq org-agenda-skip-scheduled-if-deadline-is-shown  (quote repeated-after-deadline))
+
   (setq org-agenda-include-diary nil)
   (setq org-agenda-diary-file "~/git/org/diary.org")
   (setq org-agenda-insert-diary-extract-time t)
@@ -586,9 +589,6 @@ so change the default 'F' binding in the agenda to allow both"
 
   (setq org-refile-target-verify-function 'bh/verify-refile-target)
 
-  ;; Resume clocking task when emacs is restarted
-  (org-clock-persistence-insinuate)
-  ;;
   ;; Show lot of clocking history so it's easy to pick items off the C-F11 list
   (setq org-clock-history-length 23)
   ;; Resume clocking task on clock-in if the clock is open
@@ -611,6 +611,11 @@ so change the default 'F' binding in the agenda to allow both"
   (setq org-clock-auto-clock-resolution (quote when-no-clock-is-running))
   ;; Include current clocking task in clock reports
   (setq org-clock-report-include-clocking-task t)
+  ;; Resolve open clocks if the user is idle for more than 10 minutes.
+  (setq org-clock-idle-time 10)
+  ;;
+  ;; Resume clocking task when emacs is restarted
+  (org-clock-persistence-insinuate)
 
   (setq bh/keep-clock-running nil)
 
