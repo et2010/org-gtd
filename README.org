@@ -16,6 +16,8 @@ This spacemacs layer is based on the web document "[[http://doc.norang.ca/org-mo
 
 The original document is also included, though some settings here may be different from the documented version. I modified it a bit to make it fit in with the Spacemacs layer frame.
 
+*IMPORTANT* You'd better put this layer behind org layer, otherwise it will increase launch time significantly. I haven't figured out why. Any help will be appreciated.
+
 * Install
 First, clone from GitHub:
 
