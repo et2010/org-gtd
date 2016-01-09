@@ -71,6 +71,8 @@
     ))
 
 (defun gtd/post-init-org-agenda()
+  (require 'org-habit)
+
   (global-set-key (kbd "<f12>") 'org-agenda)
 
   (setq org-agenda-span 'day)
