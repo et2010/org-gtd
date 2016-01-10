@@ -449,6 +449,8 @@ so change the default 'F' binding in the agenda to allow both"
 
   (global-set-key (kbd "<f9> s") 'bh/switch-to-scratch)
 
+  (global-set-key (kbd "<f9> S") 'org-save-all-org-buffers)
+
   (global-set-key (kbd "<f9> t") 'bh/insert-inactive-timestamp)
   (global-set-key (kbd "<f9> T") 'bh/toggle-insert-inactive-timestamp)
 
@@ -665,7 +667,7 @@ as the default task."
       ;;
       (save-restriction
         (widen)
-                                        ; Find the tags on the current task
+        ;; Find the tags on the current task
         (if (and (equal major-mode 'org-mode) (not (org-before-first-heading-p)) (eq arg 4))
             (org-clock-in '(16))
           (bh/clock-in-organization-task-as-default)))))
