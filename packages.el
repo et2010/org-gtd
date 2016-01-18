@@ -428,6 +428,24 @@ so change the default 'F' binding in the agenda to allow both"
   (setq org-agenda-text-search-extra-files (quote (agenda-archives)))
   )
 
+(defun gtd/pre-init-org ()
+  (spacemacs|use-package-add-hook org
+    :post-config
+    (progn
+      (setq org-default-notes-file "~/git/org/refile.org")
+
+      (require 'org-id)
+      (defun bh/clock-in-task-by-id (id)
+        "Clock in a task by id"
+        (org-with-point-at (org-id-find id 'marker)
+          (org-clock-in nil)))
+
+      (defun bh/clock-in-organization-task-as-default ()
+        (interactive)
+        (org-with-point-at (org-id-find bh/organization-task-id 'marker)
+          (org-clock-in '(16)))))
+    ))
+
 (defun gtd/post-init-org ()
   (add-to-list 'auto-mode-alist '("\\.\\(org\\|org_archive\\|txt\\)$" . org-mode))
   (global-set-key "\C-cb" 'org-iswitchb)
@@ -526,7 +544,6 @@ so change the default 'F' binding in the agenda to allow both"
                 ("DONE" ("WAITING") ("CANCELLED") ("HOLD")))))
 
   (setq org-directory "~/git/org")
-  (setq org-default-notes-file "~/git/org/refile.org")
 
   ;; Capture templates for: TODO tasks, Notes, appointments, phone calls,
   ;; meetings, and org-protocol
@@ -700,11 +717,6 @@ as the default task."
 
   (defvar bh/organization-task-id "e2fb68ed-2c63-4f32-9fa3-9ce17349191e")
 
-  (defun bh/clock-in-organization-task-as-default ()
-    (interactive)
-    (org-with-point-at (org-id-find bh/organization-task-id 'marker)
-      (org-clock-in '(16))))
-
   (defun bh/clock-out-maybe ()
     (when (and bh/keep-clock-running
                (not org-clock-clocking-in)
@@ -713,12 +725,6 @@ as the default task."
       (bh/clock-in-parent-task)))
 
   (add-hook 'org-clock-out-hook 'bh/clock-out-maybe 'append)
-
-  (require 'org-id)
-  (defun bh/clock-in-task-by-id (id)
-    "Clock in a task by id"
-    (org-with-point-at (org-id-find id 'marker)
-      (org-clock-in nil)))
 
   (defun bh/clock-in-last-task (arg)
     "Clock in the interrupted task if there is one
