@@ -66,8 +66,9 @@
   (use-package boxquote
     :defer t
     :init
-    (define-key global-map (kbd "<f9> r") 'boxquote-region)
-    (define-key global-map (kbd "<f9> f") 'boxquote-insert-file)
+    (progn
+      (define-key global-map (kbd "<f9> r") 'boxquote-region)
+      (define-key global-map (kbd "<f9> f") 'boxquote-insert-file))
     ))
 
 (defun gtd/post-init-org-agenda()
@@ -434,7 +435,7 @@ so change the default 'F' binding in the agenda to allow both"
   ;; Custom Key Bindings
   (global-set-key (kbd "<f5>") 'bh/org-todo)
   (global-set-key (kbd "<S-f5>") 'bh/widen)
-  (global-set-key (kbd "<f7>") 'bh/set-truncate-lines)
+  (global-set-key (kbd "<f10>") 'bh/set-truncate-lines)
   (global-set-key (kbd "<f8>") 'org-cycle-agenda-files)
   (global-set-key (kbd "<f9> <f9>") 'bh/show-org-agenda)
   (global-set-key (kbd "<f9> c") 'calendar)
@@ -459,12 +460,10 @@ so change the default 'F' binding in the agenda to allow both"
   (global-set-key (kbd "<f9> SPC") 'bh/clock-in-last-task)
   (global-set-key (kbd "C-<f9>") 'previous-buffer)
   (global-set-key (kbd "M-<f9>") 'org-toggle-inline-images)
-  ;; (global-set-key (kbd "C-x n r") 'narrow-to-region)
   (global-set-key (kbd "C-<f10>") 'next-buffer)
   (global-set-key (kbd "S-<f11>") 'org-clock-goto)
   (global-set-key (kbd "C-<f11>") 'org-clock-in)
   ;; (global-set-key (kbd "C-s-<f12>") 'bh/save-then-publish)
-  (global-set-key (kbd "C-c c") 'org-capture)
 
   (defun bh/hide-other ()
     (interactive)

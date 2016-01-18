@@ -63,6 +63,6 @@ To use this contribution add it to your =~/.spacemacs=
 | f9 s        | Switch to scratch buffer                        | Sometimes  |
 | f9 S        | Save all org buffers                            | Rare       |
 | f9 h        | Hide other tasks                                | Rare       |
-| f7          | Toggle line truncation/wrap                     | Rare       |
+| f10         | Toggle line truncation/wrap                     | Rare       |
 | f9 T        | Toggle insert inactive timestamp                | Rare       |
 | C-c a       | Enter Agenda (minimal emacs testing)            | Rare       |
