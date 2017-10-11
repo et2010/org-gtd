@@ -1090,7 +1090,7 @@ Skip project and sub-project tasks, habits, and loose non-project tasks."
            (ruby . t)
            (gnuplot . t)
            (clojure . t)
-           (sh . t)
+           (shell . t)
            (ledger . t)
            (org . t)
            (plantuml . t)
