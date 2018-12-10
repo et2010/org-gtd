@@ -448,7 +448,7 @@ so change the default 'F' binding in the agenda to allow both"
 
 (defun gtd/post-init-org ()
   (add-to-list 'auto-mode-alist '("\\.\\(org\\|org_archive\\|txt\\)$" . org-mode))
-  (global-set-key "\C-cb" 'org-iswitchb)
+  (global-set-key "\C-cb" 'org-switchb)
 
   ;; Custom Key Bindings
   (global-set-key (kbd "<f5>") 'bh/org-todo)
