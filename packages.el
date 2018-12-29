@@ -78,7 +78,9 @@
 
   (setq org-agenda-span 'day)
 
-  (setq org-agenda-files (quote ("~/git/org")))
+  (if (boundp 'org-user-agenda-files)
+      (setq org-agenda-files org-user-agenda-files)
+    (setq org-agenda-files (quote ("~/git/org"))))
 
   ;; Do not dim blocked tasks
   (setq org-agenda-dim-blocked-tasks nil)
